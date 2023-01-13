@@ -9,13 +9,29 @@ content.classList.add('content');
 function navbar() {
   const nav = document.createElement('nav');
 
-  let text = ["Home", "Menu", "Contact Us"];
-  text.forEach(function(e) {
-      const a = document.createElement("a");
-      a.className = "nav-item";
-      a.setAttribute("href", "#");
-      a.innerHTML = e;
-      nav.appendChild(a);
+  //Create nav items object
+  let restaurantNav = {
+    home: {
+      text: "Home",
+      link: "#"
+    },
+    menu: {
+      text: "Menu",
+      link: "test 1"
+    },
+    contact: {
+      text: "Contact",
+      link: "test 2"
+    }
+  };
+
+  //loop through restaurant nav items and append its text/link value
+  Object.values(restaurantNav).forEach(value => {
+    const a = document.createElement("a");
+    a.className = "nav-item";
+    a.setAttribute("href", value.link);
+    a.innerHTML = value.text;
+    nav.appendChild(a);
   });
 
   return document.body.appendChild(nav);
