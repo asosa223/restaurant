@@ -11,7 +11,7 @@ function navbar() {
   const nav = document.createElement('nav');
 
   //Create nav items object
-  let restaurantNav = {
+  const restaurantNav = {
     home: {
       text: "Home",
       id: "home"
@@ -48,7 +48,7 @@ function home() {
   h1.textContent = "Alec's Pizza Spot";
   h2.textContent = `"It's the best!" - Customer probably`;
 
-  //appends test to home div
+  //appends text to home content div
   homeContent.appendChild(h1);
   homeContent.appendChild(h2);
 

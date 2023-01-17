@@ -13,6 +13,17 @@ body {
   background-size: cover;
 }
 
+/**********CONTAINER****************/
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/**********NAV****************/
 nav {
   display: flex;
   justify-content: center;
@@ -28,15 +39,7 @@ nav {
   cursor: pointer;
 }
 
-.content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-}
-
+/**********HOME****************/
 .homeContent {
   color: whitesmoke;
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
@@ -44,5 +47,24 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/**********MENU****************/
+.menuContent {
+  color: whitesmoke;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuItem {
+  width: 75vw;
+  display: flex;
+  justify-content: space-between;
 }
 
