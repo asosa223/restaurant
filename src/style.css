@@ -25,6 +25,7 @@ nav {
   font-weight: bold;
   color: whitesmoke;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .content {
@@ -36,7 +37,7 @@ nav {
   width: 100vw;
 }
 
-#homeContent {
+.homeContent {
   color: whitesmoke;
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
   font-size: 25px;

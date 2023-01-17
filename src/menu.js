@@ -1,5 +1,14 @@
 
-export function menu() {
-    return console.log('this is a test');
+function menu() {
+    const menuContent = document.createElement('div');
+    menuContent.classList.add('menuContent');
+    
+    const menuText = document.createElement('h1');
+    menuText.textContent = "Menu";
+    menuContent.appendChild(menuText);
+
+    return menuContent;
 }
+
+export { menu };
 

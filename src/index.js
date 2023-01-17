@@ -1,6 +1,7 @@
 import "./style.css";
 import { menu } from "./menu";
 
+let clicked = false;
 //Create content selector
 const content = document.createElement('div');
 content.classList.add('content');
@@ -13,15 +14,15 @@ function navbar() {
   let restaurantNav = {
     home: {
       text: "Home",
-      link: "#"
+      id: "home"
     },
     menu: {
       text: "Menu",
-      link: "test 1"
+      id: "menu"
     },
     contact: {
       text: "Contact",
-      link: "test 2"
+      id: "contact"
     }
   };
 
@@ -29,7 +30,7 @@ function navbar() {
   Object.values(restaurantNav).forEach(value => {
     const a = document.createElement("a");
     a.className = "nav-item";
-    a.setAttribute("href", value.link);
+    a.setAttribute("id", value.id);
     a.innerHTML = value.text;
     nav.appendChild(a);
   });
@@ -40,7 +41,7 @@ function navbar() {
 function home() {
   //Create home content
   const homeContent = document.createElement('div'); 
-  homeContent.setAttribute("id", "homeContent"); 
+  homeContent.classList.add('homeContent'); 
 
   const h1 = document.createElement('h1');
   const h2 = document.createElement('h2');
@@ -51,15 +52,30 @@ function home() {
   homeContent.appendChild(h1);
   homeContent.appendChild(h2);
 
-  //call content div and append our home content
-  return content.appendChild(homeContent);
+  //return our home content div
+  return homeContent;
 }
 
 //Will load our modules based on user interaction with the nav
 function load() {
   navbar(); //append nav to body first
   document.body.appendChild(content); //Content next
-  home(); //whatever module needed when menu item clicked
+  content.appendChild(home()); //whatever module needed when menu item clicked
+  document.querySelectorAll('.nav-item').forEach(item => { // Select all of our nav items
+    let id = item.getAttribute('id');   
+    item.addEventListener('click', () => {  //for each item, add a click event listener
+      const restHome = document.querySelector('.homeContent');
+      const restMenu = document.querySelector('.menuContent');
+
+      if (id == 'home' && !restHome) {  //If the id matches nav name and isn't already appended,
+        content.appendChild(home());    //it will append appropriate content.
+        content.removeChild(restMenu); 
+      } else if (id == 'menu' && !restMenu) {
+        content.appendChild(menu());
+        content.removeChild(restHome); 
+      }
+    })
+  })
 }
 
 //call load function
