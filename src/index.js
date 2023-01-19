@@ -1,5 +1,6 @@
 import "./style.css";
 import { menu } from "./menu";
+import { contact } from "./contact";
 
 let clicked = false;
 //Create content selector
@@ -56,6 +57,7 @@ function home() {
   return homeContent;
 }
 
+
 //Will load our modules based on user interaction with the nav
 function load() {
   navbar(); //append nav to body first
@@ -64,15 +66,21 @@ function load() {
   document.querySelectorAll('.nav-item').forEach(item => { // Select all of our nav items
     let id = item.getAttribute('id');   
     item.addEventListener('click', () => {  //for each item, add a click event listener
-      const restHome = document.querySelector('.homeContent');
-      const restMenu = document.querySelector('.menuContent');
-
-      if (id == 'home' && !restHome) {  //If the id matches nav name and isn't already appended,
-        content.appendChild(home());    //it will append appropriate content.
-        content.removeChild(restMenu); 
-      } else if (id == 'menu' && !restMenu) {
-        content.appendChild(menu());
-        content.removeChild(restHome); 
+      switch(id){ // Will append content of clicked nav item 
+        case 'home':
+          content.appendChild(home());
+          content.removeChild(content.firstChild);
+          break;
+        case 'menu': 
+          content.appendChild(menu());
+          content.removeChild(content.firstChild);
+          break;
+        case 'contact':
+          content.appendChild(contact());
+          content.removeChild(content.firstChild);
+          break;
+        default:
+          console.log('error');
       }
     })
   })

@@ -7,10 +7,21 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: black;
+}
+
+body::before {  /*USED FOR BACKGROUND IMAGE OPACITY*/
+  content: "";
   background-image: url('./assets/pizza.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: absolute; /*SET SO THAT BACKGROUND IS BEHIND CONTENT*/
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
 }
 
 /**********CONTAINER****************/
@@ -21,6 +32,7 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  position: relative; /*SET SO THAT CONTENT IS VISIBLE*/
 }
 
 /**********NAV****************/
@@ -29,6 +41,7 @@ nav {
   justify-content: center;
   gap: 5rem;
   padding: 1rem;
+  position: relative; /*SET SO THAT NAV IS VISIBLE*/
 }
 
 .nav-item {
@@ -59,12 +72,23 @@ nav {
   width: inherit;
   height: inherit;
   align-items: center;
-  justify-content: center;
 }
 
 .menuItem {
   width: 75vw;
   display: flex;
   justify-content: space-between;
+}
+
+/**********CONTACT****************/
+.contactContent {
+  color: whitesmoke;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  height: inherit;
+  align-items: center;
 }
 
