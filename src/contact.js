@@ -17,7 +17,9 @@ function contact() {
         // Create label
         const label = document.createElement("label");
         label.setAttribute("for", labelFor);
-        label.textContent = `${labelText}: `; 
+        label.textContent = `${labelText}: `;
+        form.appendChild(label);
+
         return label;
     }
 
@@ -27,12 +29,33 @@ function contact() {
     form.setAttribute("action", "#");
     contactContent.appendChild(form);
 
-    // Create an input element for Full Name
+    // Create an name field
     const FN = document.createElement("input");
     FN.setAttribute("type", "text");
     FN.setAttribute("name", "FullName");
-    form.appendChild(createLabel("FullName", "Name"));
-    form.appendChild(FN);
+    createLabel("FullName", "Name").appendChild(FN);
+
+    // Create phone field
+    const phone = document.createElement("input");
+    phone.setAttribute("type", "tel");
+    phone.setAttribute("name", "phone");
+    createLabel("phone", "Phone").appendChild(phone);
+
+     // Create email field
+     const email = document.createElement("input");
+     email.setAttribute("type", "email");
+     email.setAttribute("name", "email");
+     createLabel("email", "Email").appendChild(email);
+
+     // Create comment field
+     const comment = document.createElement("textarea");
+     comment.setAttribute("id", "form-comment");
+     comment.setAttribute("name", "comment");
+     comment.setAttribute("rows", "4");
+     comment.setAttribute("cols", "50");
+     createLabel("comment", "Comment").appendChild(comment);
+
+     
 
     return contactContent;
 }

@@ -30,7 +30,7 @@ body::before {  /*USED FOR BACKGROUND IMAGE OPACITY*/
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 75vh;
   width: 100vw;
   position: relative; /*SET SO THAT CONTENT IS VISIBLE*/
 }
@@ -90,5 +90,23 @@ nav {
   width: inherit;
   height: inherit;
   align-items: center;
+}
+
+form {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  margin: 10px;
 }
 
